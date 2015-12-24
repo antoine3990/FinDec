@@ -9,11 +9,13 @@ Ligne 54-56 - Problème d'affichage lorsqu'on clique sur la 2e langue / Détecte
 
 
 */
+var previousLang = "fr";
+var lang = "fr";
 
 function search() {
 	if ($("#search_input").is(":hidden")) {
-		$("#search > button").unbind("mouseenter mouseleave"); // Enlever la fonction hover
 		$("#search_input").show();
+		$("#search > button").unbind("mouseenter mouseleave"); // Enlever la fonction hover
 		$("#search_input").animate({width: 330}, 200, "linear");
 		$("#search").animate({width: 400, left: ($(window).width() - offsetSearch())}, 200, "linear");
 		$("#search > button").css("background", "#525252 url(images/search_active.png) no-repeat center");
@@ -52,9 +54,11 @@ function changeLang() {
 		removeDropDownLang(); // Retirer le 2e élément
 		langHover();
 		
-		var offset = $("#search").offset().top;
-		if (offset >= $("#header").height)
+		if (previousLang != lang)
+        {
 			langReplace();
+            previousLang = lang;
+        }
 	}
 	else {
 		addDropDownLang();
@@ -83,6 +87,10 @@ function langHover() {
 		color: "#acacac"
 	});
 	
+    if ($("#search_input").is(":visible")) {
+		$("#search_input").stop().css({ width: 330 });
+		$("#search").stop().css({ width: 400, left: ($(window).width() - offsetSearch()) });
+    }
 	positionSearchbar();
 }
 
@@ -160,7 +168,7 @@ $(document).mouseup(function (e) {
 		});
 	}
 	
-	var container = $("#language");
+	container = $("#language");
 	if (!container.is(e.target) && container.has(e.target).length === 0)
 	{
 		container.hover(function() { langHover(); }, function() { langReplace(); });
@@ -181,6 +189,7 @@ $(document).on('click', "div#lang_fr", function() {
 	if(id.is("div#lang_fr")) {
 		removeDropDownLang();
 		prependLang("lang_fr");
+        lang = "fr";
 	}
 	changeLang();
 });
@@ -190,6 +199,7 @@ $(document).on('click', "div#lang_en", function() {
 	if(id.is("div#lang_en")) {
 		removeDropDownLang();
 		prependLang("lang_en");
+        lang = "en";
 	}
 	changeLang();
 });

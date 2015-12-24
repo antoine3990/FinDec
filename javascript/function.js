@@ -144,6 +144,7 @@ function langReplace() {
 }
 
 $(document).ready(function(){
+    addTiles();
 	$(window).resize(function() {
 		positionSearchbar();
 	});
@@ -204,10 +205,13 @@ $(document).on('click', "div#lang_en", function() {
 	changeLang();
 });
 
-
-
-
-
-
-
-
+function addTiles() {
+    var tiles = ["restaurant", "bar", "club", "cinema", "attraction", "nature"];
+    
+    $("body").append("<div id=\"tiles\"></div>")
+    for (var i = 0; i < tiles.length; i++) {
+        $("#tiles").append("<div id=\"" + tiles[i] + "\"class=\"tile\"></div>")
+        $("#" + tiles[i]).append("<span>" + tiles[i].toUpperCase() + "</span>")
+        $("#" + tiles[i]).append("<img src=\"images/" + tiles[i] + "_black.png\" alt=\"" + tiles[i] + "\"/>");
+    }
+}

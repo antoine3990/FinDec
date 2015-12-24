@@ -230,3 +230,23 @@ function addTiles() {
         top: tilePos > $("#header").height() ? tilePos : $("#header").height()
     });
 }
+
+function tileHover() {
+    
+}
+
+function tileReplace() {
+    
+}
+
+function tileClick() {
+    /* 
+    Si aucune "tile" n'a été cliquée, ouvrir la fenêtre de la tile, sinon, la fermer.
+    if (!clickedTile) {
+        $(".tile").unbind("mouseenter mouseleave"); // Enlever la fonction hover
+    }
+    else {
+        $(".tile").hover(function() { tileHover(); }, function() { tileReplace(); }); // Ajouter la fonction hover
+    }
+    */
+}

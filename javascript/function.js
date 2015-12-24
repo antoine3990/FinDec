@@ -147,6 +147,11 @@ $(document).ready(function(){
     addTiles();
 	$(window).resize(function() {
 		positionSearchbar();
+        
+        var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
+        $("#tiles").css({
+            top: tilePos > $("#header").height() ? tilePos : $("#header").height()
+        });
 	});
 });
 
@@ -214,4 +219,14 @@ function addTiles() {
         $("#" + tiles[i]).append("<span>" + tiles[i].toUpperCase() + "</span>")
         $("#" + tiles[i]).append("<img src=\"images/" + tiles[i] + "_black.png\" alt=\"" + tiles[i] + "\"/>");
     }
+    
+    var spanHeight = $(".tile > span").height() + 75;
+    $(".tile > img").css({
+        top: ($("#" + tiles[0]).height() / 2) - ($("#" + tiles[0] + " > img").height() / 2) - spanHeight
+    });
+    
+    var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
+    $("#tiles").css({
+        top: tilePos > $("#header").height() ? tilePos : $("#header").height()
+    });
 }

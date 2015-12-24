@@ -141,14 +141,22 @@ input[type=checkbox] 	{ visibility: hidden; }
 #tiles {
     display: block;
     position: relative;
-    width: 1040px;
+    width: 1020px;
     height: auto;
     overflow: hidden;
     //background-color: red;
     margin: 0 auto;
 }
-	@media only screen and (max-width: 1060px) 	{ #tiles { width: 700px; } }	
-	@media only screen and (max-width: 716px)	{ #tiles { width: 355px; } }	
+	@media only screen and (max-width: 1060px) 	{ #tiles { width: 680px; } }	
+	@media only screen and (max-width: 716px)	{ 
+        #tiles { 
+            width: 485px; 
+        } 
+        .tile {
+            width: 425px !important;
+            margin: 20px 30px !important;
+        }
+    }	
 
     .tile {
         position: relative;

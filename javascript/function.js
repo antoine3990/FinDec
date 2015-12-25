@@ -16,13 +16,28 @@ function search() {
 	if ($("#search_input").is(":hidden")) {
 		$("#search_input").show();
 		$("#search > button").unbind("mouseenter mouseleave"); // Enlever la fonction hover
-		$("#search_input").animate({width: 330}, 200, "linear");
-		$("#search").animate({width: 400, left: ($(window).width() - offsetSearch())}, 200, "linear");
 		$("#search > button").css("background", "#525252 url(images/search_active.png) no-repeat center");
+        showSearchInput(true);
 	}
 	else {
 		
 	}
+}
+
+function showSearchInput(animate) {
+    var inputWidth = 330;
+    var searchWidth = 400;
+    var anime_time = 200;
+    var anime_style = "linear";
+    
+    if (animate) {
+		$("#search_input").animate({width: inputWidth}, anime_time, anime_style);
+		$("#search").animate({width: searchWidth, left: ($(window).width() - offsetSearch())}, anime_time, anime_style);
+    }
+    else {
+		$("#search_input").stop().css({ width: inputWidth });
+		$("#search").stop().css({ width: searchWidth, left: ($(window).width() - offsetSearch()) });
+    }
 }
 
 function positionSearchbar() {
@@ -87,10 +102,9 @@ function langHover() {
 		color: "#acacac"
 	});
 	
-    if ($("#search_input").is(":visible")) {
-		$("#search_input").stop().css({ width: 330 });
-		$("#search").stop().css({ width: 400, left: ($(window).width() - offsetSearch()) });
-    }
+    if ($("#search_input").is(":visible"))
+        showSearchInput(false);
+        
 	positionSearchbar();
 }
 
@@ -164,9 +178,9 @@ $(document).mouseup(function (e) {
 	if (!container.is(e.target) && container.has(e.target).length === 0)
 	{
 		$("#search_input").hide();
-		$("#search_input").css({width: 0});
-		$("#search").css({width: 70, left: ($(window).width() - offsetSearch())});
-		$("#search > button").css("background", "#e7e7e7 url(images/search.png) no-repeat center");
+		$("#search_input").stop().css({width: 0});
+		$("#search").stop().css({width: 70, left: ($(window).width() - offsetSearch())});
+		$("#search > button").stop().css("background", "#e7e7e7 url(images/search.png) no-repeat center");
 		$('#search > button').hover(function() { 
 			$("#search > button").css("background", "#d4d4d4 url(images/search_hover.png) no-repeat center");
 		}, function() { 

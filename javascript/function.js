@@ -284,6 +284,14 @@ function createMainHeader(id) {
     
     $("#mainHeader").append("<div class=\"line\"></div>");
     $("#mainHeader").append("<div id=\"options\"></div>");
+    
+    var optHeight = 51;
+    var margins = ($("#mainHeader").height() - optHeight) / 2;
+    $("#mainHeader > #options").css({
+       height: optHeight,
+       marginTop: margins,
+       marginBottom: margins
+    });
 }
 
 function createMedias(id, medias) {

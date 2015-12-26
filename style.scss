@@ -230,8 +230,13 @@ input[type=checkbox] 	{ visibility: hidden; }
     }
     
     #mainHeader > #options {
-        
+        float: right;
+        width: 51px; // Height definition is in function.js;
+        margin: 0 10px;
+        background: url(images/options.png) no-repeat center;
+        cursor: pointer;
     }
+        #mainHeader > #options:hover { background: url(images/options_hover.png) no-repeat center; }
  
 /* -------------------------------------------------------------------------------------------------------------------
                                                         MEDIA

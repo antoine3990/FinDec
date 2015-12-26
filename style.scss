@@ -229,6 +229,13 @@ input[type=checkbox] 	{ visibility: hidden; }
         color: #444444;
     }
     
+    #mainHeader > .line {
+        float: right;
+        width: 2px; // Height definition is in function.js;
+        margin: 0 10px;
+        background-color: #e4e4e4;
+    }
+    
     #mainHeader > #options {
         float: right;
         width: 51px; // Height definition is in function.js;

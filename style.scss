@@ -201,7 +201,7 @@ input[type=checkbox] 	{ visibility: hidden; }
      top: 0px;
      left: 0px;
      width: 100%;
-     height: 96px;
+     height: 96px; // Changer le line-height dans #category si l'on change cet element;
  }
     #mainHeader > #back {
         float: left;
@@ -218,14 +218,14 @@ input[type=checkbox] 	{ visibility: hidden; }
         float: left;
         width: 55px;
         height: 100%;
-        margin: 0 10px;
+        margin: 0 20px 0 15px;
         background-repeat: no-repeat;
         background-position: center;
     }
     #mainHeader > h1 {
         float: left;
-        line-height: 100%;
         font: 24pt 'BigNoodleTitling', 'Arial', sans-serif;
+        line-height: 96px;
         color: #444444;
     }
  

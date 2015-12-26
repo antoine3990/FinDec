@@ -245,6 +245,10 @@ function addTiles() {
     });
 }
 
+function removeTiles() {
+    $("#tiles").remove();
+}
+
 function tileHover() {
     
 }
@@ -254,13 +258,8 @@ function tileReplace() {
 }
 
 $(document).on('click', "div.tile", function() {
-    //Si aucune "tile" n'a été cliquée, ouvrir la fenêtre de la tile, sinon, la fermer.
-    if ($("#language").find("#main").length === 0) {
-        createMain("header", $(this).attr('id'));
-    }
-    else {
-        removeMain();
-    }
+    removeTiles(); // Supprimer les tiles
+    createMain("header", $(this).attr('id')); // Créer le MainMenu
 });
 
 function tileClick() {

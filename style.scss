@@ -138,6 +138,7 @@ input[type=checkbox] 	{ visibility: hidden; }
 /* -------------------------------------------------------------------------------------------------------------------
                                                        TILES
  ------------------------------------------------------------------------------------------------------------------- */
+
 #tiles {
     display: block;
     position: relative;
@@ -179,3 +180,52 @@ input[type=checkbox] 	{ visibility: hidden; }
             font: 100 24pt 'BigNoodleTitling', 'Arial', sans-serif;
         }
         .tile > img { position: relative; }
+
+/* -------------------------------------------------------------------------------------------------------------------
+                                                        MEDIA
+ ------------------------------------------------------------------------------------------------------------------- */
+ 
+ #main {
+     
+ }
+ 
+/* -------------------------------------------------------------------------------------------------------------------
+                                                        MEDIA
+ ------------------------------------------------------------------------------------------------------------------- */
+
+#mediacontainer {
+    position: relative;
+    top: 530px;
+    width: 117px;
+    margin: 0 auto;
+    text-align: center;
+    color: #6a6a6a;
+    font: 400 12px lato, sans-serif;
+}
+    .media_img {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background-repeat: no-repeat;
+    }
+        #twitter_img {left: 0px; background-image:url(./images/twitter.png);}
+        #facebook_img {left: 42px; background-image:url(./images/facebook.png);}
+        #google_img {right: 0px; background-image:url(./images/google.png);}
+
+    .media_text {
+        display: none;
+        position: absolute;
+        top: 32px;
+        height: 16px;
+        width: 117px;
+        line-height: 5px;
+    }
+ 
+/* HOVER */
+#twitter_img:hover  {background-image: url(./images/twitter_hover.png)}
+#facebook_img:hover {background-image: url(./images/facebook_hover.png)}
+#google_img:hover   {background-image: url(./images/google_hover.png)}
+
+#twitter_img:hover + #twitter_text      {display: block;}
+#facebook_img:hover + #facebook_text    {display: block;}
+#google_img:hover + #google_text        {display: block;}

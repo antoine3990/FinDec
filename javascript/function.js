@@ -269,7 +269,7 @@ function tileClick() {
 function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");
     $("#main").append("<div id=\"mainHeader\"></div>");
-    $("#mainHeader").append("<img src=\"images/back.png\" alt=\"back\" />");
+    $("#mainHeader").append("<div id=\"back\"></div>");
     $("#mainHeader").append("<img src=\"images/" + id + "_black.png\" alt=\"" + id + "\" />");
     $("#mainHeader").append("<h1>" + id.toUpperCase() + "</h1>");
     

@@ -19,6 +19,11 @@ html, body {
 	background-color: #ececec;
 }
 
+div, button {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -94,9 +99,9 @@ input[type=checkbox] 	{ visibility: hidden; }
 		right: 0px;
 		width: 70px;
 		height: 100%;
-		background: #e7e7e7 url(images/search.png) no-repeat center;
+		background: #e7e7e7 url(images/search.png);
 	}
-		#search > button:hover { background: #d4d4d4 url(images/search_hover.png) no-repeat center; }
+		#search > button:hover { background: #d4d4d4 url(images/search_hover.png); }
 
 #language {
 	display: block;
@@ -117,9 +122,8 @@ input[type=checkbox] 	{ visibility: hidden; }
 		text-indent: 18px;
 		color: #acacac;
 	}
-		//#lang_en { display: none; }
-			#lang_fr > div { background-image: url(images/flag_fr.png); z-index: 99; }
-			#lang_en > div { background-image: url(images/flag_en.png); z-index: 99; }
+        #lang_fr > div { background-image: url(images/flag_fr.png); z-index: 99; }
+        #lang_en > div { background-image: url(images/flag_en.png); z-index: 99; }
 	#language > div { height: 100%; }
 
 	.flag {
@@ -204,24 +208,20 @@ input[type=checkbox] 	{ visibility: hidden; }
      width: 100%;
      height: 96px;
  }
-    #mainHeader > img {
-        cursor: pointer;
-    }
-    #mainHeader > img[alt="back"] {
+    #mainHeader > #back {
         top: 0px;
         left: 0px;
-        width: 7px;
-        height: 43px;
-        align-content: middle;
+        width: 50px;
+        height: 100%;
+        background-image: url(images/back.png);
+        cursor: pointer;
     }
+        #mainHeader > #back:hover { background-image: url(images/back_hover.png); }
+    
     #mainHeader > h1 {
         float: left;
         font: 24pt 'BigNoodleTitling', 'Arial', sans-serif;
         color: #444444;
-    }
-    
-    #mainHeader > img[alt="back"]:hover {
-        
     }
  
 /* -------------------------------------------------------------------------------------------------------------------
@@ -241,7 +241,6 @@ input[type=checkbox] 	{ visibility: hidden; }
         position: absolute;
         width: 32px;
         height: 32px;
-        background-repeat: no-repeat;
     }
         #twitter_img {left: 0px; background-image:url(./images/twitter.png);}
         #facebook_img {left: 42px; background-image:url(./images/facebook.png);}

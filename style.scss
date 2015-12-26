@@ -204,6 +204,7 @@ input[type=checkbox] 	{ visibility: hidden; }
      height: 96px;
  }
     #mainHeader > #back {
+        float: left;
         top: 0px;
         left: 0px;
         width: 50px;
@@ -213,6 +214,14 @@ input[type=checkbox] 	{ visibility: hidden; }
     }
         #mainHeader > #back:hover { background: url(images/back_hover.png) no-repeat center; }
     
+    #mainHeader > #category {
+        float: left;
+        width: 47px;
+        height: 100%;
+        margin: 0 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
     #mainHeader > h1 {
         float: left;
         font: 24pt 'BigNoodleTitling', 'Arial', sans-serif;

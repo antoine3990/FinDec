@@ -267,12 +267,15 @@ function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");
     $("#main").append("<div id=\"mainHeader\"></div>");
     $("#mainHeader").append("<div id=\"back\"></div>");
-    $("#mainHeader").append("<img src=\"images/" + id + "_black.png\" alt=\"" + id + "\" />");
+    
+    $("#mainHeader").append("<div id=\"category\"></div>");
+    $("#mainHeader > #category").css("background-image", "url(images/" + id + "_black.png)");
+    
     $("#mainHeader").append("<h1>" + id.toUpperCase() + "</h1>");
     
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
     var medias = ["twitter", "facebook", "google+"];
-    createMedias("mediaContainer", medias);
+    //createMedias("mediaContainer", medias);
     
     $("#mainHeader").append("<div class=\"line\"></div>");
     $("#mainHeader").append("<img src=\"images/options.png\" alt=\"options\" />");

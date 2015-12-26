@@ -253,18 +253,15 @@ function tileHover() {
     
 }
 
-function tileReplace() {
-    
-}
-
 $(document).on('click', "div.tile", function() {
     removeTiles(); // Supprimer les tiles
     createMain("header", $(this).attr('id')); // Créer le MainMenu
 });
 
-function tileClick() {
-    
-}
+$(document).on('click', "#mainHeader > #back", function() {
+    removeMain(); // Retirer le Main
+    addTiles(); // Ajouter les tiles
+});
 
 function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");

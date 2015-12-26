@@ -265,6 +265,10 @@ $(document).on('click', "#mainHeader > #back", function() {
 
 function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");
+    createMainHeader(id);
+}
+
+function createMainHeader(id) {
     $("#main").append("<div id=\"mainHeader\"></div>");
     $("#mainHeader").append("<div id=\"back\"></div>");
     
@@ -279,7 +283,7 @@ function createMain(insAfter, id) {
     //createMedias("mediaContainer", medias);
     
     $("#mainHeader").append("<div class=\"line\"></div>");
-    $("#mainHeader").append("<img src=\"images/options.png\" alt=\"options\" />");
+    $("#mainHeader").append("<div id=\"options\"></div>");
 }
 
 function createMedias(id, medias) {

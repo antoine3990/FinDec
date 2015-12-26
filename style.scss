@@ -19,11 +19,6 @@ html, body {
 	background-color: #ececec;
 }
 
-div, button {
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -71,7 +66,7 @@ input[type=checkbox] 	{ visibility: hidden; }
 	border-bottom: 1px solid #d4d4d4;
     z-index: 999;
 }
-#header * { z-index: 999; }
+    #header * { z-index: 999; }
 
 #search {
 	position: relative;
@@ -99,9 +94,9 @@ input[type=checkbox] 	{ visibility: hidden; }
 		right: 0px;
 		width: 70px;
 		height: 100%;
-		background: #e7e7e7 url(images/search.png);
+		background: #e7e7e7 url(images/search.png) no-repeat center;
 	}
-		#search > button:hover { background: #d4d4d4 url(images/search_hover.png); }
+		#search > button:hover { background: #d4d4d4 url(images/search_hover.png) no-repeat center; }
 
 #language {
 	display: block;
@@ -122,8 +117,8 @@ input[type=checkbox] 	{ visibility: hidden; }
 		text-indent: 18px;
 		color: #acacac;
 	}
-        #lang_fr > div { background-image: url(images/flag_fr.png); z-index: 99; }
-        #lang_en > div { background-image: url(images/flag_en.png); z-index: 99; }
+        #lang_fr > div { background: url(images/flag_fr.png) no-repeat center; z-index: 99; }
+        #lang_en > div { background: url(images/flag_en.png) no-repeat center; z-index: 99; }
 	#language > div { height: 100%; }
 
 	.flag {
@@ -213,10 +208,12 @@ input[type=checkbox] 	{ visibility: hidden; }
         left: 0px;
         width: 50px;
         height: 100%;
-        background-image: url(images/back.png);
+        background: url(images/back.png) no-repeat center;
         cursor: pointer;
     }
-        #mainHeader > #back:hover { background-image: url(images/back_hover.png); }
+        #mainHeader > #back:hover { background: url(images/back_hover.png) no-repeat center; }
+    
+    #mainHeader > 
     
     #mainHeader > h1 {
         float: left;
@@ -241,6 +238,7 @@ input[type=checkbox] 	{ visibility: hidden; }
         position: absolute;
         width: 32px;
         height: 32px;
+        background-repeat: no-repeat;
     }
         #twitter_img {left: 0px; background-image:url(./images/twitter.png);}
         #facebook_img {left: 42px; background-image:url(./images/facebook.png);}

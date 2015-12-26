@@ -254,13 +254,42 @@ function tileReplace() {
 }
 
 function tileClick() {
-    /* 
-    Si aucune "tile" n'a été cliquée, ouvrir la fenêtre de la tile, sinon, la fermer.
-    if (!clickedTile) {
-        $(".tile").unbind("mouseenter mouseleave"); // Enlever la fonction hover
+    //Si aucune "tile" n'a été cliquée, ouvrir la fenêtre de la tile, sinon, la fermer.
+    if ($("#language").find("#main").length === 0) {
+        createMain("header");
     }
     else {
-        $(".tile").hover(function() { tileHover(); }, function() { tileReplace(); }); // Ajouter la fonction hover
+        removeMain();
     }
-    */
+    
+}
+
+function createMain(insAfter, id) {
+    $("#" + insAfter).after("<div id=\"main\"></div>");
+    $("#main").append("<div id=\"mainHeader\"></div>");
+    $("#mainHeader").append("<img src=\"images/back.png\" alt=\"back\" />");
+    $("#mainHeader").append("<img src=\"images/" + id + "_black.png\" alt=\"" + id + "\" />");
+    $("#mainHeader").append("<h1>" + id + "</h1>");
+    
+    $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
+    var medias = ["twitter", "facebook", "google+"];
+    createMedias.apply(this, "mediaContainer", medias);
+    
+    $("#mainHeader").append("<div class=\"line\"></div>");
+    $("#mainHeader").append("<img src=\"images/options.png\" alt=\"options\" />");
+}
+
+function createMedias(id, medias) {
+    for (var i = 0; i < medias.length; i++) {
+        var name = medias[i] === "google+" ? medias[i].substr(5) : medias[i];
+        var formattedName = medias[i].substr(0, 1).toUpperCase() + medias[i].substr(1);
+        
+        $("#mediaContainer").append("<button class=\"media_img\" id=\"" + name + "_img\"></button>");
+        $("#mediaContainer").append("<div class=\"media_text\" id=\"" + name + "_text\"></div>")
+        $("#" + name + "_text").append("<p>Share on " + formattedName + "</p>")
+    }
+}
+
+function removeMain() {
+    $("#main").remove();
 }

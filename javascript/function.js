@@ -282,20 +282,20 @@ function createMainHeader(id) {
     var medias = ["twitter", "facebook", "google+"];
     //createMedias("mediaContainer", medias);
     
-    var lineHeight = 32;
-    var margins = ($("#mainHeader").height() - lineHeight) / 2;
-    $("#mainHeader").append("<div class=\"line\"></div>");
-    $("#mainHeader > .line").css({
-       height: lineHeight,
+    var optHeight = 51;
+    var margins = ($("#mainHeader").height() - optHeight) / 2;
+    $("#mainHeader").append("<div id=\"options\"></div>");
+    $("#mainHeader > #options").css({
+       height: optHeight,
        marginTop: margins,
        marginBottom: margins
     });
     
-    var optHeight = 51;
-    margins = ($("#mainHeader").height() - optHeight) / 2;
-    $("#mainHeader").append("<div id=\"options\"></div>");
-    $("#mainHeader > #options").css({
-       height: optHeight,
+    var lineHeight = 32;
+    margins = ($("#mainHeader").height() - lineHeight) / 2;
+    $("#mainHeader").append("<div class=\"line\"></div>");
+    $("#mainHeader > .line").css({
+       height: lineHeight,
        marginTop: margins,
        marginBottom: margins
     });

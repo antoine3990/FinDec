@@ -269,7 +269,7 @@ function createMain(insAfter, id) {
     $("#mainHeader").append("<div id=\"back\"></div>");
     
     $("#mainHeader").append("<div id=\"category\"></div>");
-    $("#mainHeader > #category").css("background-image", "url(images/" + id + "_black.png)");
+    $("#mainHeader > #category").css("background-image", "url(images/" + id + "_small_grey.png)");
     
     $("#mainHeader").append("<h1>" + id.toUpperCase() + "</h1>");
     

@@ -253,14 +253,17 @@ function tileReplace() {
     
 }
 
-function tileClick() {
+$(document).on('click', "div.tile", function() {
     //Si aucune "tile" n'a été cliquée, ouvrir la fenêtre de la tile, sinon, la fermer.
     if ($("#language").find("#main").length === 0) {
-        createMain("header");
+        createMain("header", $(this).attr('id'));
     }
     else {
         removeMain();
     }
+});
+
+function tileClick() {
     
 }
 
@@ -269,11 +272,11 @@ function createMain(insAfter, id) {
     $("#main").append("<div id=\"mainHeader\"></div>");
     $("#mainHeader").append("<img src=\"images/back.png\" alt=\"back\" />");
     $("#mainHeader").append("<img src=\"images/" + id + "_black.png\" alt=\"" + id + "\" />");
-    $("#mainHeader").append("<h1>" + id + "</h1>");
+    $("#mainHeader").append("<h1>" + id.toUpperCase() + "</h1>");
     
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
     var medias = ["twitter", "facebook", "google+"];
-    createMedias.apply(this, "mediaContainer", medias);
+    createMedias("mediaContainer", medias);
     
     $("#mainHeader").append("<div class=\"line\"></div>");
     $("#mainHeader").append("<img src=\"images/options.png\" alt=\"options\" />");
@@ -281,7 +284,7 @@ function createMain(insAfter, id) {
 
 function createMedias(id, medias) {
     for (var i = 0; i < medias.length; i++) {
-        var name = medias[i] === "google+" ? medias[i].substr(5) : medias[i];
+        var name = medias[i] === "google+" ? medias[i].substr(0,6) : medias[i];
         var formattedName = medias[i].substr(0, 1).toUpperCase() + medias[i].substr(1);
         
         $("#mediaContainer").append("<button class=\"media_img\" id=\"" + name + "_img\"></button>");

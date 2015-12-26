@@ -271,7 +271,8 @@ function createMain(insAfter, id) {
     $("#mainHeader").append("<div id=\"category\"></div>");
     $("#mainHeader > #category").css("background-image", "url(images/" + id + "_small_grey.png)");
     
-    $("#mainHeader").append("<h1>" + id.toUpperCase() + "</h1>");
+    var title = id == "nature" ? id : (id + "s");
+    $("#mainHeader").append("<h1>" + title.toUpperCase() + "</h1>");
     
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
     var medias = ["twitter", "facebook", "google+"];

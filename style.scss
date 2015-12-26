@@ -216,7 +216,7 @@ input[type=checkbox] 	{ visibility: hidden; }
     
     #mainHeader > #category {
         float: left;
-        width: 70px;
+        width: 55px;
         height: 100%;
         margin: 0 10px;
         background-repeat: no-repeat;
@@ -224,6 +224,7 @@ input[type=checkbox] 	{ visibility: hidden; }
     }
     #mainHeader > h1 {
         float: left;
+        line-height: 100%;
         font: 24pt 'BigNoodleTitling', 'Arial', sans-serif;
         color: #444444;
     }

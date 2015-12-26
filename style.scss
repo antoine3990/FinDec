@@ -249,14 +249,15 @@ input[type=checkbox] 	{ visibility: hidden; }
                                                         MEDIA
  ------------------------------------------------------------------------------------------------------------------- */
 
-#mediacontainer {
+#mediaContainer {
+    float: right;
     position: relative;
-    top: 530px;
+    top: 0px;
     width: 117px;
     margin: 0 auto;
     text-align: center;
     color: #6a6a6a;
-    font: 400 12px lato, sans-serif;
+    font: 400 12px "Lato", "Arial", sans-serif;
 }
     .media_img {
         position: absolute;
@@ -274,7 +275,7 @@ input[type=checkbox] 	{ visibility: hidden; }
         top: 32px;
         height: 16px;
         width: 117px;
-        line-height: 5px;
+        line-height: 25px;
     }
  
 /* HOVER */

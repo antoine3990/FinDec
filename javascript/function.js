@@ -278,9 +278,6 @@ function createMainHeader(id) {
     var title = id == "nature" ? id : (id + "s");
     $("#mainHeader").append("<h1>" + title.toUpperCase() + "</h1>");
     
-    $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
-    var medias = ["twitter", "facebook", "google+"];
-    //createMedias("mediaContainer", medias);
     
     var optHeight = 51;
     var margins = ($("#mainHeader").height() - optHeight) / 2;
@@ -299,6 +296,10 @@ function createMainHeader(id) {
        marginTop: margins,
        marginBottom: margins
     });
+    
+    $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
+    var medias = ["twitter", "facebook", "google+"];
+    createMedias("mediaContainer", medias);
 }
 
 function createMedias(id, medias) {

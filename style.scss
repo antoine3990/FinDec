@@ -239,7 +239,7 @@ input[type=checkbox] 	{ visibility: hidden; }
     #mainHeader > #options {
         float: right;
         width: 51px; // Height definition is in function.js;
-        margin: 0 10px;
+        margin: 0 10px 0 1px;
         background: url(images/options.png) no-repeat center;
         cursor: pointer;
     }
@@ -255,6 +255,7 @@ input[type=checkbox] 	{ visibility: hidden; }
     top: 0px;
     width: 117px;
     margin: 0 auto;
+    margin-right: 12px;
     text-align: center;
     color: #6a6a6a;
     font: 400 12px "Lato", "Arial", sans-serif;
@@ -275,7 +276,7 @@ input[type=checkbox] 	{ visibility: hidden; }
         top: 32px;
         height: 16px;
         width: 117px;
-        line-height: 25px;
+        line-height: 30px;
     }
  
 /* HOVER */

@@ -266,6 +266,7 @@ $(document).on('click', "#mainHeader > #back", function() {
 function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");
     createMainHeader(id);
+    createOptions(id);
 }
 
 function createMainHeader(id) {
@@ -307,6 +308,29 @@ function createMainHeader(id) {
     
     var medias = ["twitter", "facebook", "google+"];
     createMedias("mediaContainer", medias);
+}
+
+function createOptions(id) {
+    /*
+    <div id="filters">
+        <h2>FILTERS</h2>
+        <div class="line"></div>
+        .
+        .
+        .
+    </div>
+    */
+}
+
+function createViewOption() {
+    /*
+    <div id="view">
+        <div id="triangle"></div>
+        <span>VIEW</span>
+        <input type="radio" name="viewStyle" onClick="" value="tile">
+        <input type="radio" name="viewStyle" onClick="" value="list">
+    </div>
+    */
 }
 
 function createMedias(id, medias) {

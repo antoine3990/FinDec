@@ -231,13 +231,10 @@ function addTiles() {
     for (var i = 0; i < tiles.length; i++) {
         $("#tiles").append("<div id=\"" + tiles[i] + "\"class=\"tile\"></div>")
         $("#" + tiles[i]).append("<span>" + tiles[i].toUpperCase() + "</span>")
-        $("#" + tiles[i]).append("<img src=\"images/" + tiles[i] + "_black.png\" alt=\"" + tiles[i] + "\"/>");
+        $("#tiles > #" + tiles[i]).css({
+            background: " #fff url(images/" + tiles[i] + "_black.png) no-repeat center" 
+        });
     }
-    
-    var spanHeight = $(".tile > span").height() + 75;
-    $(".tile > img").css({
-        top: ($("#" + tiles[0]).height() / 2) - ($("#" + tiles[0] + " > img").height() / 2) - spanHeight
-    });
     
     var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
     $("#tiles").css({
@@ -268,7 +265,6 @@ $(document).on('click', "#mainHeader > #back", function() {
 function createMain(insAfter, id) {
     $("#" + insAfter).after("<div id=\"main\"></div>");
     createMainHeader(id);
-    createOptions(id);
 }
 
 function createMainHeader(id) {
@@ -283,8 +279,8 @@ function createMainHeader(id) {
     
     var optHeight = 51;
     var margins = ($("#mainHeader").height() - optHeight) / 2;
-    $("#mainHeader").append("<div id=\"options\"></div>");
-    $("#mainHeader > #options").css({
+    $("#mainHeader").append("<div id=\"optionButton\"></div>");
+    $("#mainHeader > #optionButton").css({
        height: optHeight,
        marginTop: margins,
        marginBottom: margins
@@ -299,20 +295,55 @@ function createMainHeader(id) {
        marginBottom: margins
     });
     
-    var mediaHeight = 32;
-    margins = ($("#mainHeader").height() - mediaHeight) / 2;
+    //var mediaHeight = 32;
+    //margins = ($("#mainHeader").height() - mediaHeight) / 2;
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
-    $("#mediaContainer").css({
+    alignVertical("mainHeader", "mediaContainer", 32);
+    /*$("#mediaContainer").css({
        height: mediaHeight,
        marginTop: margins,
        marginBottom: margins 
-    });
+    });*/
     
     var medias = ["twitter", "facebook", "google+"];
     createMedias("mediaContainer", medias);
 }
 
+function append(parentId, elemId, type) {
+    
+}
+
+function alignVertical(parentId, elemId, elemHeight) {
+    var margins = ($("#" + parentId).height() - elemHeight) / 2;
+    $("#" + elemId).css({
+       height: elemHeight,
+       marginTop: margins,
+       marginBottom: margins 
+    });
+}
+
+$(document).on('click', "#mainHeader > #options", function() {
+    if ($("#mainHeader > div#options").find("#lang_fr").length > 0);
+});
+
 function createOptions(id) {
+    // create option
+    createOptionView();
+    createOptionFilter(id);
+}
+
+function createOptionView() {
+    /*
+    <div id="view">
+        <div id="triangle"></div>
+        <span>VIEW</span>
+        <input type="radio" name="viewStyle" onClick="" value="tile">
+        <input type="radio" name="viewStyle" onClick="" value="list">
+    </div>
+    */
+}
+
+function createOptionFilter(id) {
     /*
     <div id="filters">
         <h2>FILTERS</h2>
@@ -324,15 +355,8 @@ function createOptions(id) {
     */
 }
 
-function createViewOption() {
-    /*
-    <div id="view">
-        <div id="triangle"></div>
-        <span>VIEW</span>
-        <input type="radio" name="viewStyle" onClick="" value="tile">
-        <input type="radio" name="viewStyle" onClick="" value="list">
-    </div>
-    */
+function removeOptions() {
+    $("#options").remove();
 }
 
 function createMedias(id, medias) {

@@ -236,14 +236,14 @@ input[type=checkbox] 	{ visibility: hidden; }
         background-color: #e4e4e4;
     }
     
-    #mainHeader > #options {
+    #mainHeader > optionButton {
         float: right;
         width: 51px; // Height definition is in function.js;
         margin: 0 10px 0 1px;
         background: url(images/options.png) no-repeat center;
         cursor: pointer;
     }
-        #mainHeader > #options:hover { background: url(images/options_hover.png) no-repeat center; }
+        #mainHeader > #optionButton:hover { background: url(images/options_hover.png) no-repeat center; }
  
 /* -------------------------------------------------------------------------------------------------------------------
                                                         MEDIA

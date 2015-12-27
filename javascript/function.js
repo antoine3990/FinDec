@@ -256,11 +256,13 @@ function tileHover() {
 $(document).on('click', "div.tile", function() {
     removeTiles(); // Supprimer les tiles
     createMain("header", $(this).attr('id')); // Créer le MainMenu
+    positionSearchbar(); // S'assurer que le bouton de search est à la bonne position
 });
 
 $(document).on('click', "#mainHeader > #back", function() {
     removeMain(); // Retirer le Main
     addTiles(); // Ajouter les tiles
+    positionSearchbar(); // S'assurer que le bouton de search est à la bonne position
 });
 
 function createMain(insAfter, id) {

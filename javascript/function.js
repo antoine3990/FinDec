@@ -1,14 +1,3 @@
-/*
-TO DO
-Ligne 54-56 - Problème d'affichage lorsqu'on clique sur la 2e langue / Détecter quelle langue est cliquée
-
-
-
-
-
-
-
-*/
 var previousLang = "fr";
 var lang = "fr";
 

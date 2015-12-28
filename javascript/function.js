@@ -152,10 +152,12 @@ $(document).ready(function(){
 	$(window).resize(function() {
 		positionSearchbar();
         
-        var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
-        $("#tiles").css({
-            top: tilePos > $("#header").height() ? tilePos : $("#header").height()
-        });
+        if ($(document).find("#tiles").length > 0) {
+            var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
+            $("#tiles").css({
+                top: tilePos > $("#header").height() ? tilePos : $("#header").height()
+            });
+        }
 	});
 });
 
@@ -310,7 +312,7 @@ function createOptionView() {
     $("#options > #view").append("<div id=\"triangle\"></div>");
     $("#options > #view").append("<span>VIEW</span>");
     
-    var viewStyles = ["list", "tiles"];
+    var viewStyles = ["listView", "tileView"];
     for (var i = 0; i < viewStyles.length; i++) {
         $("#options > #view").append("<div id=\"" + viewStyles[i] + "\"></div>");
         $("#" + viewStyles[i]).css({

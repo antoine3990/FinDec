@@ -269,6 +269,7 @@ input[type=checkbox] 	{ visibility: hidden; }
             margin: 0 29px;
         }
         #view > div:not(:first-child) {
+            display: block;
             position: relative;
             float: right;
             top: 0;

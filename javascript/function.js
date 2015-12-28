@@ -1,3 +1,4 @@
+/* global $ */
 var previousLang = "fr";
 var lang = "fr";
 
@@ -312,7 +313,19 @@ function createOptionView() {
     var viewStyles = ["list", "tiles"];
     for (var i = 0; i < viewStyles.length; i++) {
         $("#options > #view").append("<div id=\"" + viewStyles[i] + "\"></div>");
+        $("#" + viewStyles[i]).css({
+           background: "#f2f2f2 url(images/" + viewStyles[i] + ".png) no-repeat center" 
+        });
     }
+    
+    var inputSize = 60;
+    var margins = ($("#view").height() - inputSize) / 2;
+    $("#view > div").not("div:first").css({
+        width: inputSize,
+        height: inputSize,
+        marginTop: margins,
+        marginBottom: margins 
+    });
 }
 
 function createOptionFilter(id) {

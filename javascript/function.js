@@ -277,38 +277,17 @@ function createMainHeader(id) {
     var title = id == "nature" ? id : (id + "s");
     $("#mainHeader").append("<h1>" + title.toUpperCase() + "</h1>");
     
-    //var optHeight = 51;
-    //var margins = ($("#mainHeader").height() - optHeight) / 2;
     $("#mainHeader").append("<div id=\"optionButton\"></div>");
     alignVertical("mainHeader", "#optionButton", 51);
-    /*$("#mainHeader > #optionButton").css({
-       height: optHeight,
-       marginTop: margins,
-       marginBottom: margins
-    });*/
     
-    //var lineHeight = 32;
-    //margins = ($("#mainHeader").height() - lineHeight) / 2;
     $("#mainHeader").append("<div class=\"line\"></div>");
     alignVertical("mainHeader", ".line", 32);
-    /*$("#mainHeader > .line").css({
-       height: lineHeight,
-       marginTop: margins,
-       marginBottom: margins
-    });*/
     
-    //var mediaHeight = 32;
-    //margins = ($("#mainHeader").height() - mediaHeight) / 2;
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
     alignVertical("mainHeader", "#mediaContainer", 32);
-    /*$("#mediaContainer").css({
-       height: mediaHeight,
-       marginTop: margins,
-       marginBottom: margins 
-    });*/
     
-    var medias = ["twitter", "facebook", "google+"];
-    createMedias("mediaContainer", medias);
+    //var medias = ["twitter", "facebook", "google+"];
+    createMedias("mediaContainer", ["twitter", "facebook", "google+"]);
 }
 
 function alignVertical(parentId, elemId, elemHeight) {

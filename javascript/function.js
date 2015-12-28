@@ -310,6 +310,7 @@ function createOptions(id) {
 function createOptionView() {
     $("#options").append("<div id=\"view\"></div>");
     $("#options > #view").append("<div id=\"triangle\"></div>");
+    alignVertical("view", "#triangle", 37);
     $("#options > #view").append("<span>VIEW</span>");
     
     var viewStyles = ["listView", "tileView"];

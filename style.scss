@@ -261,7 +261,11 @@ input[type=checkbox] 	{ visibility: hidden; }
         height: 96px;
     }
         #view > #triangle {
-            display: block;
+            position: absolute;
+            left: -12px;
+            width: 12px;
+            height: 37px;
+            background: url(images/triangle.png) no-repeat right;
         }
         #view > span {
             font: 14pt "Lato", "Arial", sans-serif;

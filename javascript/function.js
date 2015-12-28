@@ -310,7 +310,6 @@ function createOptions(id) {
 function createOptionView() {
     $("#options").append("<div id=\"view\"></div>");
     $("#options > #view").append("<div id=\"triangle\"></div>");
-    alignVertical("view", "#triangle", 37);
     $("#options > #view").append("<span>VIEW</span>");
     
     var viewStyles = ["listView", "tileView"];
@@ -320,6 +319,8 @@ function createOptionView() {
            background: "#f2f2f2 url(images/" + viewStyles[i] + ".png) no-repeat center" 
         });
     }
+    
+    alignVertical("view", "#triangle", 37);
     
     var inputSize = 60;
     var margins = ($("#view").height() - inputSize) / 2;
@@ -333,7 +334,7 @@ function createOptionView() {
 
 function createOptionFilter(id) {
     /*
-    <div id="filters">
+    <div id="filters"> 
         <h2>FILTERS</h2>
         <div class="line"></div>
         .
@@ -341,6 +342,9 @@ function createOptionFilter(id) {
         .
     </div>
     */
+    $("#options").append("<div id=\"filters\"></div>");
+    $("#filters").append("<h2>FILTERS</h2>");
+    $("#filters").append("<div class=\"line\"></div>");
 }
 
 $(document).on('click', "#option > #view > input", function() {

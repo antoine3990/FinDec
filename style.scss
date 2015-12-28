@@ -253,6 +253,7 @@ input[type=checkbox] 	{ visibility: hidden; }
     #options > div {
         left: 0;
         width: 100%;
+        margin-bottom: 17px;
         background-color: #fff;
     }
     #options > #view {
@@ -287,6 +288,19 @@ input[type=checkbox] 	{ visibility: hidden; }
             left: -1px;
             margin-right: 17px;
         }
+        
+    #filters > h2 {
+        width: 100%;
+        font: 14pt "Lato", "Arial", sans-serif;
+        text-align: center;
+        padding: 17px 0 9px 0;
+    }
+    #filters > .line {
+        width: 154px;
+        height: 1px;
+        background-color: #d4d4d4;
+        margin: 0 auto;
+    }
  
 /* -------------------------------------------------------------------------------------------------------------------
                                                         MEDIA

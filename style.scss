@@ -191,7 +191,6 @@ input[type=checkbox] 	{ visibility: hidden; }
      width: 1210px;
      height: 1248px; // temporary (to-delete);
      background-color: #fff;
-     overflow: hidden;
      margin: 0 auto;
  }
  
@@ -244,6 +243,43 @@ input[type=checkbox] 	{ visibility: hidden; }
         cursor: pointer;
     }
         #mainHeader > #optionButton:hover { background: url(images/options_hover.png) no-repeat center; }
+        
+#main > #options {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    left: calc(100% + 29px);
+}
+    #options > div {
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    #options > #view {
+        display: block;
+        top: 0;
+        height: 96px;
+    }
+        #view > #triangle {
+            display: block;
+        }
+        #view > span {
+            font: 14pt "Lato", "Arial", sans-serif;
+            margin: 0 29px;
+        }
+        #view > div:not(:first-child) {
+            float: right;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #e7e7e7;
+            background: #f2f2f2 no-repeat center;
+            margin: 0;
+        }
+        #view > div:nth-last-child(2) {
+            position: relative;
+            left: -1px;
+            margin-right: 17px;
+        }
  
 /* -------------------------------------------------------------------------------------------------------------------
                                                         MEDIA

@@ -288,7 +288,7 @@ function alignVertical(parentId, elemId, elemHeight) {
 }
 
 $(document).on('click', "#mainHeader > #optionButton", function() {
-    if ($("#mainHeader").find("#options").length === 0) {
+    if ($("#main").find("#options").length === 0) {
         var text = $("#mainHeader > h1").text();
         var id = (text[text.length - 1].toLowerCase() == 's' ? text.substr(0, text.length - 1) : text).toLowerCase();
         createOptions(id);
@@ -299,7 +299,7 @@ $(document).on('click', "#mainHeader > #optionButton", function() {
 });
 
 function createOptions(id) {
-    $("#mainHeader").append("<div id=\"options\"></div>");
+    $("#main").append("<div id=\"options\"></div>");
     createOptionView();
     createOptionFilter(id);
 }
@@ -309,9 +309,9 @@ function createOptionView() {
     $("#options > #view").append("<div id=\"triangle\"></div>");
     $("#options > #view").append("<span>VIEW</span>");
     
-    var viewStyles = ["tiles", "list"];
+    var viewStyles = ["list", "tiles"];
     for (var i = 0; i < viewStyles.length; i++) {
-        $("#options > #view").append("<input type=\"radio\" name=\"viewStyle\" value=\"" + viewStyles[i] + "\">");
+        $("#options > #view").append("<div id=\"" + viewStyles[i] + "\"></div>");
     }
 }
 
@@ -332,7 +332,7 @@ $(document).on('click', "#option > #view > input", function() {
 });
 
 function removeOptions() {
-    $("#mainHeader #options").remove();
+    $("#main #options").remove();
 }
 
 function createMedias(id, medias) {

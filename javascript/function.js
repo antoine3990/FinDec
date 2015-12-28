@@ -305,15 +305,6 @@ function createOptions(id) {
 }
 
 function createOptionView() {
-    /*
-    <div id="view">
-        <div id="triangle"></div>
-        <span>VIEW</span>
-        <input type="radio" name="viewStyle" onClick="" value="tile">
-        <input type="radio" name="viewStyle" onClick="" value="list">
-    </div>
-    */
-    
     $("#options").append("<div id=\"view\"></div>");
     $("#options > #view").append("<div id=\"triangle\"></div>");
     $("#options > #view").append("<span>VIEW</span>");

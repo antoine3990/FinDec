@@ -286,7 +286,6 @@ function createMainHeader(id) {
     $("#mainHeader").append("<div id=\"mediaContainer\" class=\"noselect\"></div>");
     alignVertical("mainHeader", "#mediaContainer", 32);
     
-    //var medias = ["twitter", "facebook", "google+"];
     createMedias("mediaContainer", ["twitter", "facebook", "google+"]);
 }
 
@@ -299,12 +298,19 @@ function alignVertical(parentId, elemId, elemHeight) {
     });
 }
 
-$(document).on('click', "#mainHeader > #options", function() {
-    if ($("#mainHeader > div#options").find("#lang_fr").length > 0);
+$(document).on('click', "#mainHeader > #optionButton", function() {
+    if ($("#mainHeader").find("#options").length === 0) {
+        var text = $("#mainHeader > h1").text();
+        var id = (text[text.length - 1].toLowerCase() == 's' ? text.substr(0, text.length - 1) : text).toLowerCase();
+        createOptions(id);
+    }
+    else {
+        removeOptions();
+    }
 });
 
 function createOptions(id) {
-    // create option
+    $("#mainHeader").append("<div id=\"options\"></div>");
     createOptionView();
     createOptionFilter(id);
 }
@@ -318,6 +324,15 @@ function createOptionView() {
         <input type="radio" name="viewStyle" onClick="" value="list">
     </div>
     */
+    
+    $("#options").append("<div id=\"view\"></div>");
+    $("#options > #view").append("<div id=\"triangle\"></div>");
+    $("#options > #view").append("<span>VIEW</span>");
+    
+    var viewStyles = ["tiles", "list"];
+    for (var i = 0; i < viewStyles.length; i++) {
+        $("#options > #view").append("<input type=\"radio\" name=\"viewStyle\" value=\"" + viewStyles[i] + "\">");
+    }
 }
 
 function createOptionFilter(id) {
@@ -332,8 +347,12 @@ function createOptionFilter(id) {
     */
 }
 
+$(document).on('click', "#option > #view > input", function() {
+    
+});
+
 function removeOptions() {
-    $("#options").remove();
+    $("#mainHeader #options").remove();
 }
 
 function createMedias(id, medias) {
@@ -342,8 +361,8 @@ function createMedias(id, medias) {
         var formattedName = medias[i].substr(0, 1).toUpperCase() + medias[i].substr(1);
         
         $("#mediaContainer").append("<button class=\"media_img\" id=\"" + name + "_img\"></button>");
-        $("#mediaContainer").append("<div class=\"media_text\" id=\"" + name + "_text\"></div>")
-        $("#" + name + "_text").append("<p>Share on " + formattedName + "</p>")
+        $("#mediaContainer").append("<div class=\"media_text\" id=\"" + name + "_text\"></div>");
+        $("#" + name + "_text").append("<p>Share on " + formattedName + "</p>");
     }
 }
 

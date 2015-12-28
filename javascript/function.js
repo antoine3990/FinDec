@@ -333,21 +333,31 @@ function createOptionView() {
 }
 
 function createOptionFilter(id) {
-    /*
-    <div id="filters"> 
-        <h2>FILTERS</h2>
-        <div class="line"></div>
-        .
-        .
-        .
-    </div>
-    */
     $("#options").append("<div id=\"filters\"></div>");
     $("#filters").append("<h2>FILTERS</h2>");
     $("#filters").append("<div class=\"line\"></div>");
+    //addFilter("filters", "first cat", ["1", "2", "3", "4"]);
 }
 
-$(document).on('click', "#option > #view > input", function() {
+function addFilter(id, category, choices) {
+    for (var i = 0; i < choices.length; i++) {
+        $("#" + id).append("<input type=\"checkbox\" value=\"" + choices[i] + "\"><span>" + id.toUpperCase() + "</span>");
+    }
+}
+
+$(document).on("mouseenter", "#view > div", function() {
+    var id = $(this).attr("id");
+    if (id != "triangle") 
+        $(this).css("background", "#797979 url(images/" + id + "_hover.png) no-repeat center");
+});
+
+$(document).on("mouseleave", "#view > div", function() {
+    var id = $(this).attr("id");
+    if (id != "triangle") 
+        $(this).css("background", "#f2f2f2 url(images/" + id + ".png) no-repeat center");
+});
+
+$(document).on("click", "#view > div", function() {
     
 });
 

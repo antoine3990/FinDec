@@ -305,6 +305,9 @@ function createOptions(id) {
     $("#main").append("<div id=\"options\"></div>");
     createOptionView();
     createOptionFilter(id);
+    // Slide to left
+    var leftPos = $('#container').scrollLeft();
+    $("#container").animate({scrollLeft: leftPos + $("#options").width() + 50}, 100);
 }
 
 function createOptionView() {
@@ -336,12 +339,12 @@ function createOptionFilter(id) {
     $("#options").append("<div id=\"filters\"></div>");
     $("#filters").append("<h2>FILTERS</h2>");
     $("#filters").append("<div class=\"line\"></div>");
-    //addFilter("filters", "first cat", ["1", "2", "3", "4"]);
+    addFilter("filters", "first cat", ["1", "2", "3", "4"]);
 }
 
 function addFilter(id, category, choices) {
     for (var i = 0; i < choices.length; i++) {
-        $("#" + id).append("<input type=\"checkbox\" value=\"" + choices[i] + "\"><span>" + id.toUpperCase() + "</span>");
+        $("#" + id).append("<input type=\"checkbox\" value=\"" + choices[i] + "\"><span>" + choices[i].toUpperCase() + "</span>");
     }
 }
 

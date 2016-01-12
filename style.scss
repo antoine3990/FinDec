@@ -31,9 +31,8 @@ html, body {
 textarea, input, button 	{ outline: none; border: none; }
 button                  	{ cursor: pointer; background-color: transparent; }
 a                       	{ text-decoration: none; cursor: pointer; }
-ul 					{ list-style-type: none; }
-b 					{ font-weight: 300; }
-input[type=checkbox] 	{ visibility: hidden; }
+ul 					        { list-style-type: none; }
+b 					        { font-weight: 300; }
 
 .show { visibility: visible; opacity: 1; transition: 1s; }
 .hide { visibility: hidden; opacity: 0; transition: 1s; }
@@ -300,6 +299,18 @@ input[type=checkbox] 	{ visibility: hidden; }
         height: 1px;
         background-color: #d4d4d4;
         margin: 0 auto;
+    }
+    #filters > input {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 5px 10px;
+        clear: both;
+    }
+        #filters > input:first-of-type { margin-top: 10px; }
+    #fliters > span {
+        float: left;
+        clear: both;
     }
  
 /* -------------------------------------------------------------------------------------------------------------------

@@ -147,47 +147,8 @@ function langReplace() {
 	positionSearchbar();
 }
 
-$(document).ready(function(){
-    addTiles();
-	$(window).resize(function() {
-		positionSearchbar();
-        
-        if ($(document).find("#tiles").length > 0) {
-            var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
-            $("#tiles").css({
-                top: tilePos > $("#header").height() ? tilePos : $("#header").height()
-            });
-        }
-	});
-});
-
 $(function() {
 	$('#language').hover(function() { langHover(); }, function() { langReplace(); });
-});
-
-$(document).mouseup(function (e) {
-	var container = $("#search");
-	if (!container.is(e.target) && container.has(e.target).length === 0)
-	{
-		$("#search_input").hide();
-		$("#search_input").stop().css({width: 0});
-		$("#search").stop().css({width: 70, left: ($(window).width() - offsetSearch())});
-		$("#search > button").stop().css("background", "#e7e7e7 url(images/search.png) no-repeat center");
-		$('#search > button').hover(function() { 
-			$("#search > button").css("background", "#d4d4d4 url(images/search_hover.png) no-repeat center");
-		}, function() { 
-			$("#search > button").css("background", "#e7e7e7 url(images/search.png) no-repeat center");
-		});
-	}
-	
-	container = $("#language");
-	if (!container.is(e.target) && container.has(e.target).length === 0)
-	{
-		container.hover(function() { langHover(); }, function() { langReplace(); });
-		removeDropDownLang(); // Retirer le 2e élément
-		langHover(); // S'assurer d'appliquer tout les styles du div à defaut
-		langReplace(); // Remettre le div language à son état de base
-	}
 });
 
 function prependLang(id) {
@@ -195,26 +156,6 @@ function prependLang(id) {
 	$("#" + id).append("<span display=\"block\">" + id.substr(5).toUpperCase() + "</span>");
 	$("#" + id).append("<div class=\"flag\"></div>");
 }
-
-$(document).on('click', "div#lang_fr", function() {
-	var id = $("#language > div:nth-child(2)");
-	if(id.is("div#lang_fr")) {
-		removeDropDownLang();
-		prependLang("lang_fr");
-        lang = "fr";
-	}
-	changeLang();
-});
-
-$(document).on('click', "div#lang_en", function() {
-	var id = $("#language > div:nth-child(2)");
-	if(id.is("div#lang_en")) {
-		removeDropDownLang();
-		prependLang("lang_en");
-        lang = "en";
-	}
-	changeLang();
-});
 
 function addTiles() {
     var tiles = ["restaurant", "bar", "club", "cinema", "attraction", "nature"];
@@ -242,6 +183,79 @@ function tileHover() {
     
 }
 
+$(document).ready(function(){
+    addTiles();
+	positionSearchbar();
+	$(window).resize(function() {
+		positionSearchbar();
+        positionMain();
+        
+        if ($(document).find("#tiles").length > 0) {
+            var tilePos = ($(window).height() + $("#header").height()) / 2 - $("#tiles").height() / 2;
+            $("#tiles").css({
+                top: tilePos > $("#header").height() ? tilePos : $("#header").height()
+            });
+        }
+        
+        if ($(window).width() <= 850) {
+            
+        }
+        else {
+            
+        }
+	});
+});
+
+function positionMain() {
+    var posTop = $("#header").height();
+    $("#main").css("top", posTop);
+}
+
+$(document).mouseup(function (e) {
+	var container = $("#search");
+	if (!container.is(e.target) && container.has(e.target).length === 0)
+	{
+		$("#search_input").hide();
+		$("#search_input").stop().css({width: 0});
+		$("#search").stop().css({width: 70, left: ($(window).width() - offsetSearch())});
+		$("#search > button").stop().css("background", "#e7e7e7 url(images/search.png) no-repeat center");
+		$('#search > button').hover(function() { 
+			$("#search > button").css("background", "#d4d4d4 url(images/search_hover.png) no-repeat center");
+		}, function() { 
+			$("#search > button").css("background", "#e7e7e7 url(images/search.png) no-repeat center");
+		});
+	}
+	
+	container = $("#language");
+	if (!container.is(e.target) && container.has(e.target).length === 0)
+	{
+		container.hover(function() { langHover(); }, function() { langReplace(); });
+		removeDropDownLang(); // Retirer le 2e élément
+		langHover(); // S'assurer d'appliquer tout les styles du div à defaut
+		langReplace(); // Remettre le div language à son état de base
+	}
+});
+
+$(document).on('click', "div#lang_fr", function() {
+	var id = $("#language > div:nth-child(2)");
+	if(id.is("div#lang_fr")) {
+		removeDropDownLang();
+		prependLang("lang_fr");
+        lang = "fr";
+	}
+	changeLang();
+});
+
+$(document).on('click', "div#lang_en", function() {
+	var id = $("#language > div:nth-child(2)");
+	if(id.is("div#lang_en")) {
+		removeDropDownLang();
+		prependLang("lang_en");
+        lang = "en";
+	}
+	changeLang();
+});
+
 $(document).on('click', "div.tile", function() {
     removeTiles(); // Supprimer les tiles
     createMain("header", $(this).attr('id')); // Créer le MainMenu
@@ -252,6 +266,33 @@ $(document).on('click', "#mainHeader > #back", function() {
     removeMain(); // Retirer le Main
     addTiles(); // Ajouter les tiles
     positionSearchbar(); // S'assurer que le bouton de search est à la bonne position
+});
+
+$(document).on('click', "#mainHeader > #optionButton", function() {
+    if ($("#main").find("#options").length === 0) {
+        var text = $("#mainHeader > h1").text();
+        var id = (text[text.length - 1].toLowerCase() == 's' ? text.substr(0, text.length - 1) : text).toLowerCase();
+        createOptions(id);
+    }
+    else {
+        removeOptions();
+    }
+});
+
+$(document).on("mouseenter", "#view > div", function() {
+    var id = $(this).attr("id");
+    if (id != "triangle") 
+        $(this).css("background", "#797979 url(images/" + id + "_hover.png) no-repeat center");
+});
+
+$(document).on("mouseleave", "#view > div", function() {
+    var id = $(this).attr("id");
+    if (id != "triangle") 
+        $(this).css("background", "#f2f2f2 url(images/" + id + ".png) no-repeat center");
+});
+
+$(document).on("click", "#view > div", function() {
+    
 });
 
 function createMain(insAfter, id) {
@@ -279,6 +320,8 @@ function createMainHeader(id) {
     alignVertical("mainHeader", "#mediaContainer", 32);
     
     createMedias("mediaContainer", ["twitter", "facebook", "google+"]);
+    
+    positionMain();
 }
 
 function alignVertical(parentId, elemId, elemHeight) {
@@ -290,16 +333,7 @@ function alignVertical(parentId, elemId, elemHeight) {
     });
 }
 
-$(document).on('click', "#mainHeader > #optionButton", function() {
-    if ($("#main").find("#options").length === 0) {
-        var text = $("#mainHeader > h1").text();
-        var id = (text[text.length - 1].toLowerCase() == 's' ? text.substr(0, text.length - 1) : text).toLowerCase();
-        createOptions(id);
-    }
-    else {
-        removeOptions();
-    }
-});
+
 
 function createOptions(id) {
     $("#main").append("<div id=\"options\"></div>");
@@ -347,22 +381,6 @@ function addFilter(id, category, choices) {
         $("#" + id).append("<input type=\"checkbox\" value=\"" + choices[i] + "\"><span>" + choices[i].toUpperCase() + "</span>");
     }
 }
-
-$(document).on("mouseenter", "#view > div", function() {
-    var id = $(this).attr("id");
-    if (id != "triangle") 
-        $(this).css("background", "#797979 url(images/" + id + "_hover.png) no-repeat center");
-});
-
-$(document).on("mouseleave", "#view > div", function() {
-    var id = $(this).attr("id");
-    if (id != "triangle") 
-        $(this).css("background", "#f2f2f2 url(images/" + id + ".png) no-repeat center");
-});
-
-$(document).on("click", "#view > div", function() {
-    
-});
 
 function removeOptions() {
     $("#main #options").remove();

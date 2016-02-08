@@ -186,11 +186,19 @@ b 					        { font-weight: 300; }
  #main {
      display: block;
      position: relative;
-     top: 100px; // temporary (to-fix);
-     width: 1210px;
+     max-width: 1210px;
+     width: 95%;
      height: 1248px; // temporary (to-delete);
      background-color: #fff;
      margin: 0 auto;
+     margin-top: 37px;
+ }
+ 
+ @media screen and (max-width: 850px) {
+     #main {
+         width: 100%;
+         margin: 0;
+     }
  }
  
  #mainHeader {
